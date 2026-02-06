@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:16.11
+    container_name: analysis_db
+    restart: always
+    # set shared memory limit when using docker-compose
+    build:
+      context: .
+      shm_size: 128mb
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: analysis
+      PG_DATA: ./data
+    ports:
+      - 5000:5432
