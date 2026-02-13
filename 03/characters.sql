@@ -23,3 +23,17 @@ VALUES
 COPY char_data_types TO '/Users/macbook/dev/practical_sql/03/filedir/data.txt'
 WITH
   (FORMAT CSV, HEADER, DELIMITER '|');
+
+CREATE TABLE
+  try_date_test (varchar_column varchar(50));
+
+INSERT INTO
+  try_date_test
+VALUES
+  (' 4 / / 2017 ');
+
+SELECT
+  varchar_column,
+  CAST(varchar_column AS timestamp) as casted
+FROM
+  try_date_test;
